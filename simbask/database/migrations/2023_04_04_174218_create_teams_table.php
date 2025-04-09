@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('abbreviation')->unique();
-            $table->string('picture')->nullable();
             $table->integer('founded_year');
-            $table->unsignedBigInteger('league_id');
             $table->foreignId('league_id')->constrained('leagues')->onDelete('cascade');
             $table->timestamps();
         });

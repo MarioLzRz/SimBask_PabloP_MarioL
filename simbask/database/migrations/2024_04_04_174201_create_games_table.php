@@ -21,13 +21,13 @@ return new class extends Migration
             $table->unsignedBigInteger('away_team_id');
             $table->unsignedBigInteger('league_id');
             $table->unsignedBigInteger('stadium_id');
-            $table->unsignedBigInteger('referee_id');
+            $table->string('referee_id', 9);
 
             $table->foreign('home_team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->foreign('away_team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');
             $table->foreign('stadium_id')->references('id')->on('stadiums')->onDelete('cascade');
-            $table->foreign('referee_id')->references('id')->on('referees')->onDelete('cascade');
+            $table->foreign('referee_id')->references('dni')->on('referees')->onDelete('cascade');
             $table->timestamps();
         });
     }

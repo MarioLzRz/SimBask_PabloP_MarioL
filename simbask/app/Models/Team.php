@@ -9,7 +9,6 @@ class Team extends Model
     protected $fillable = [
         'name',
         'abbreviation',
-        'picture',
         'founded_year',
         'league_id'
     ];
