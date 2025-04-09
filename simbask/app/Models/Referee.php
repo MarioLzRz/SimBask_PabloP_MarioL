@@ -9,11 +9,11 @@ class Referee extends Model
     protected $fillable = [
         'name',
         'age',
-        'experience_years',
-        'league_id'
+        'experience_years'
     ];
-    public function league()
+    
+    public function games()
     {
-        return $this->belongsTo(League::class);
+        return $this->hasMany(Game::class);
     }
 }

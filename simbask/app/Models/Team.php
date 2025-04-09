@@ -12,16 +12,33 @@ class Team extends Model
         'abbreviation',
         'picture',
         'founded_year',
-        'stadium_id',
         'league_id'
     ];
 
-    public function stadium()
-    {
-        return $this->hasOne(Stadium::class);
-    }
     public function league()
     {
         return $this->belongsTo(League::class);
     }
+    public function players()
+    {
+        return $this->hasMany(Player::class);
+    }
+    public function coach()
+    {
+        return $this->hasOne(Coach::class);
+    }
+    public function gamesHome()
+    {
+        return $this->hasMany(Game::class, 'home_team_id');
+    }
+    public function gamesAway()
+    {
+        return $this->hasMany(Game::class, 'away_team_id');
+    } 
+    public function stadium()
+    {
+        return $this->hasOne(Stadium::class);
+    }
+    
+
 }
