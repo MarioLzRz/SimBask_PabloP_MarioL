@@ -11,15 +11,10 @@ class Stadium extends Model
         'capacity',
         'location',
         'team_id',
-        'league_id'
     ];
     public function team()
     {
         return $this->belongsTo(Team::class);
-    }
-    public function league()
-    {
-        return $this->belongsTo(League::class);
     }
     public function games()
     {
