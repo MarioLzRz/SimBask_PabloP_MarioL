@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Coach extends Model
 {
     protected $fillable = [
+        'dni',
         'name',
         'age',
         'experience_years',

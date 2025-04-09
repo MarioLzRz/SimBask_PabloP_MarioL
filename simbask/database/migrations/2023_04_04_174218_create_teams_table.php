@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('referees', function (Blueprint $table) {
-            $table->string('dni',9)->primary();
+        Schema::create('teams', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->integer('age');
-            $table->integer('experience_years'); 
+            $table->string('abbreviation')->unique();
+            $table->string('picture')->nullable();
+            $table->integer('founded_year');
+            $table->unsignedBigInteger('league_id');
+            $table->foreignId('league_id')->constrained('leagues')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('referees');
+        Schema::dropIfExists('teams');
     }
 };
