@@ -21,7 +21,7 @@ class GameSeeder extends Seeder
                 'home_team_id' => 1, // Asegúrate de que este ID exista en la tabla teams
                 'away_team_id' => 2, // Asegúrate de que este ID exista en la tabla teams
                 'league_id' => 1,    // Asegúrate de que este ID exista en la tabla leagues
-                'stadium_id' => 6,   // Asegúrate de que este ID exista en la tabla stadiums
+                'stadium_id' => 5,   // Asegúrate de que este ID exista en la tabla stadiums
                 'referee_id' => '123456789', // Asegúrate de que este DNI exista en la tabla referees
             ],
             [
