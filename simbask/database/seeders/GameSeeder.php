@@ -45,7 +45,6 @@ class GameSeeder extends Seeder
                 'referee_id' => '456789123',
             ],
         ];
-
         // Insertar los datos en la tabla games
         foreach ($games as $game) {
             Game::create($game);
