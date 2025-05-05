@@ -7,59 +7,32 @@ use Illuminate\Http\Request;
 
 class RefereeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return Referee::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate(['name' => 'required|string|max:255']);
+        return Referee::create($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Referee $referee)
     {
-        //
+        return $referee;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Referee $referee)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Referee $referee)
     {
-        //
+        $request->validate(['name' => 'required|string|max:255']);
+        $referee->update($request->all());
+        return $referee;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Referee $referee)
     {
-        //
+        $referee->delete();
+        return response()->json(null, 204);
     }
 }

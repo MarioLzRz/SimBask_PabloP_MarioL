@@ -7,59 +7,32 @@ use Illuminate\Http\Request;
 
 class StadiumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return Stadium::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate(['name' => 'required|string|max:255']);
+        return Stadium::create($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Stadium $stadium)
     {
-        //
+        return $stadium;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Stadium $stadium)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Stadium $stadium)
     {
-        //
+        $request->validate(['name' => 'required|string|max:255']);
+        $stadium->update($request->all());
+        return $stadium;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Stadium $stadium)
     {
-        //
+        $stadium->delete();
+        return response()->json(null, 204);
     }
 }

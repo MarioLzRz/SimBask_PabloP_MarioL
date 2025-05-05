@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import api from '../api/axiosConfig';
+
 
 function Example() {
     return (
