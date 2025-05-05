@@ -1,24 +1,13 @@
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.css';
+import Register from './components/Register';
 
-const App = () => {
-  return (
+const App = () => (
     <div>
-      App test
-      <button className="btn btn-primary">Botón</button>
+        <h1>Bienvenido a la App</h1>
+        <Register />
     </div>
-  )
-}
+);
 
-export default App
-
-if (document.getElementById('root')) {
-    const Index = ReactDOM.createRoot(document.getElementById("root"));
-
-    Index.render(
-        <React.StrictMode>
-            <App/>
-        </React.StrictMode>
-    )
-}
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App />);
